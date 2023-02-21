@@ -25,7 +25,7 @@ def bubblesort(A):
 
 def visualize():
 	N = 10
-	A = list(range(1, N + 1))
+	A = [10, 5 , 9, 4, 45]
 	random.shuffle(A)
 	
 	# creates a generator object containing all
