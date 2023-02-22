@@ -127,7 +127,7 @@ while run:
 		# If we click Close button in window
 		if event.type == pygame.QUIT:
 			run = False
-		if event.type == pygame.KEYDOWN:
+		if event.type == pygame.KEYDOWN:²
 			if event.key == pygame.K_r:
 				generate_arr()
 			if event.key == pygame.K_RETURN:
