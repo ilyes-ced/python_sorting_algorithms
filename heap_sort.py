@@ -17,7 +17,7 @@ def heap_sort(arr):
         co = 0
         for i in range(len(arr)-1):
             if(arr[i] > arr[i+1]):
-                arr[i], arr[i+1] = arr[i+1], arr[i]
+                mid = (arr[i] + arr[i+1]) / 2
                 co += 1
         if(co == 0):
             run = False

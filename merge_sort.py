@@ -1,94 +1,40 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import random"
-   ]
-  },
-  {
-   "attachments": {},
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "# markdown test"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "array_lenght = 10\n",
-    "values_array = [0] * array_lenght"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "def generate_array():\n",
-    "    for i in range(0, array_lenght):\n",
-    "        values_array[i]= random.randrange(1, 100)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[7, 73, 59, 20, 98, 60, 91, 46, 58, 11]\n"
-     ]
-    }
-   ],
-   "source": [
-    "generate_array()\n",
-    "print(values_array)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.10.9"
-  },
-  "orig_nbformat": 4,
-  "vscode": {
-   "interpreter": {
-    "hash": "e7370f93d1d0cde622a1f8e1c04877d8463912d04d973331ad4851f04de6915a"
-   }
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 2
-}
+import random
+import time
+
+
+
+def generate_array(array_lenght, number_lenght):
+    arr = [0] * array_lenght
+    for i in range(0, array_lenght):
+        arr[i]= random.randrange(1, number_lenght)
+    return arr
+
+
+
+def merge_sort(arr, left, mid):
+    run = True
+    while(run):
+        co = 0
+        for i in range(len(arr)-1):
+            if(arr[i] > arr[i+1]):
+                mid= (arr[i] + arr[i+1])/2
+                merge_sort(arr, arr[i], mid)
+                merge_sort(array, mid+1, right)
+                array + left + mid + right
+
+                co += 1
+        if(co == 0):
+            run = False
+    return arr
+
+
+
+
+
+
+if __name__ == "__main__":
+    my_array = generate_array(10, 1000) 
+    print('unsorted array : ', my_array)
+    start_time = time.time()
+    print('sorted array : ', merge_sort(my_array, my_array[0], len(my_array)//2))
+    print("--- execution time --- %s seconds ---" % (time.time() - start_time))
