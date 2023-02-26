@@ -24,8 +24,8 @@ def bubblesort(A):
 
 
 def visualize():
-	N = 10
-	A = [10, 5 , 9, 4, 45]
+	A = [10, 5, 9, 4, 45, 156, 44, 4, 984, 84, 984, 984, 84, 48, 10, 5, 9, 4, 45, 156, 44, 4, 984, 84, 984, 984, 84, 48, 10, 5, 9, 4, 45, 156, 44, 4, 984, 84, 984, 984, 84, 48]
+	N = len(A)
 	random.shuffle(A)
 	
 	# creates a generator object containing all
