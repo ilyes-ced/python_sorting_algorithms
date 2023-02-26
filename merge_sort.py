@@ -16,12 +16,29 @@ def merge_sort(arr):
         mid = len(arr) // 2
         left = arr[mid:]
         right = arr[:mid]
-
         merge_sort(left)
         merge_sort(right)
 
-        
-
+        i = j = k = 0
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k += 1
+            
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+  
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+    return arr
 
 
 
@@ -31,5 +48,5 @@ if __name__ == "__main__":
     my_array = generate_array(10, 1000) 
     print('unsorted array : ', my_array)
     start_time = time.time()
-    print('sorted array : ', merge_sort(my_array, my_array[0], len(my_array)//2))
+    print('sorted array : ', merge_sort(my_array))
     print("--- execution time --- %s seconds ---" % (time.time() - start_time))
