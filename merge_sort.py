@@ -11,21 +11,16 @@ def generate_array(array_lenght, number_lenght):
 
 
 
-def merge_sort(arr, left, mid):
-    run = True
-    while(run):
-        co = 0
-        for i in range(len(arr)-1):
-            if(arr[i] > arr[i+1]):
-                mid= (arr[i] + arr[i+1])/2
-                merge_sort(arr, arr[i], mid)
-                merge_sort(array, mid+1, right)
-                array + left + mid + right
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left = arr[mid:]
+        right = arr[:mid]
 
-                co += 1
-        if(co == 0):
-            run = False
-    return arr
+        merge_sort(left)
+        merge_sort(right)
+
+        
 
 
 
