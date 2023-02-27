@@ -23,8 +23,15 @@ def bubblesort(A):
 			yield A
 
 
+
+def generate_array(array_lenght, number_lenght):
+    arr = [0] * array_lenght
+    for i in range(0, array_lenght):
+        arr[i]= random.randrange(1, number_lenght)
+    return arr
+
 def visualize():
-	A = [10, 5, 9, 4, 45, 156, 44, 4, 984, 84, 984, 984, 84, 48, 10, 5, 9, 4, 45, 156, 44, 4, 984, 84, 984, 984, 84, 48, 10, 5, 9, 4, 45, 156, 44, 4, 984, 84, 984, 984, 84, 48]
+	A = generate_array(100, 100)
 	N = len(A)
 	random.shuffle(A)
 	
