@@ -20,9 +20,10 @@ def bubble_sort(arr):
             if(arr[i] > arr[i+1]):
                 arr[i], arr[i+1] = arr[i+1], arr[i]
                 co += 1
+                yield arr
         if(co == 0):
             run = False
-    return arr
+    
 
 
 
@@ -30,7 +31,7 @@ def bubble_sort(arr):
 
 
 if __name__ == "__main__":
-    my_array = generate_array(100, 1000) 
+    my_array = generate_array(100, 100) 
 
     generator = bubble_sort(my_array)
 
@@ -44,7 +45,7 @@ if __name__ == "__main__":
 
 
 
-    def update(A, rects, iteration):
+    def update(my_array, rects, iteration):
     	for rect, val in zip(rects, my_array):
     		rect.set_height(val)
     	iteration[0] += 1
