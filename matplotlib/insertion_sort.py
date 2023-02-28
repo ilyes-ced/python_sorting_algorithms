@@ -1,5 +1,6 @@
 import random
 import time
+from matplotlib import pyplot as plt, animation
 
 
 
@@ -16,17 +17,53 @@ def insertion_sort(arr):
         key = arr[i]
         j = i-1
         while j >= 0 and key < arr[j] :
-                arr[j + 1] = arr[j]
-                j -= 1
+            arr[j + 1] = arr[j]
+            j -= 1
         arr[j + 1] = key
-    return arr
+        yield arr
 
 
 
 
 
 if __name__ == "__main__":
-    my_array = generate_array(10, 1000) 
+    my_array = generate_array(100, 100) 
+
+    generator = insertion_sort(my_array)
+
+    fig, ax = plt.subplots()
+    ax.set_title("Bubble Sort O(n\N{SUPERSCRIPT TWO})")
+    bar_sub = ax.bar(range(len(my_array)), my_array, align="edge")
+        
+    ax.set_xlim(0, len(my_array))
+    text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
+    iteration = [0]
+
+
+
+    def update(my_array, rects, iteration):
+    	for rect, val in zip(rects, my_array):
+    		rect.set_height(val)
+    	iteration[0] += 1
+    	text.set_text(f"# of operations: {iteration[0]}")
+
+    anim = animation.FuncAnimation(
+		fig,
+		func=update,
+		fargs=(bar_sub, iteration),
+		frames=generator,
+		repeat=True,
+		blit=False,
+		interval=15,
+		save_count=90000,
+	)
+	
+
+
+    plt.show()
+    plt.close()
+
+
     print('unsorted array : ', my_array)
     start_time = time.time()
     print('sorted array : ', insertion_sort(my_array))
